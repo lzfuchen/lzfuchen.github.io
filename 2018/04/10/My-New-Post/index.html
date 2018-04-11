@@ -674,21 +674,25 @@
 
 
 
+ 
+          
+      <link rel='stylesheet' href="https://yiyeti.cc/usr/themes/veryse/css/gitalk.css">
+      <script src="https://yiyeti.cc/usr/themes/veryse/css/gitalk.min.js"></script>
+      <script type="text/javascript">
+          var gitalk = new Gitalk({
+            clientID:  '723abd319492cb0babad', 
+            clientSecret: '8d22ca8cb4be5992f7596b0500724e36b8f0e8ae',
+            id: location.pathname,
+            repo: 'lzfuchen.github.io', 
+            owner: '284992984@qq.com', 
+            admin: '284992984@qq.com', 
+            distractionFreeMode: 'true',
+          })
+          gitalk.render('gitalk-container')
+      </script>
+    
 
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-   <script type="text/javascript">
-        var gitalk = new Gitalk({
-          clientID: '723abd319492cb0babad',
-          clientSecret: '8d22ca8cb4be5992f7596b0500724e36b8f0e8ae',
-          repo: 'lzfuchen.github.io',
-          owner: '284992984@qq.com',
-          admin: ['284992984@qq.com'],
-          id: location.pathname,
-          distractionFreeMode: 'true'
-        })
-        gitalk.render('gitalk-container')           
-       </script>
+  
 
   
 
