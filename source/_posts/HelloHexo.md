@@ -20,10 +20,10 @@ Hexo安装是有前提的，需要先安装[nodejs](https://nodejs.org/en/)，no
 > hexo init
 
 或者直接输入:
->hexo init <folder>
+> hexo init <folder>
 
 hexo 初始化完成后输入:
->npm install
+> npm install
 
 新建完成后，指定文件夹的目录如下：
 ```
@@ -37,7 +37,7 @@ hexo 初始化完成后输入:
 ```
 上面的步骤完成后我们可以输入:
 
->hexo s
+> hexo s
 
 成功启动hexo服务器后在浏览器输入：
 
@@ -54,30 +54,29 @@ hexo 初始化完成后输入:
 
 修改类型为git
 
->type: git
+> type: git
 
 增加项repo 值为https://github.com/xxx/xxx.github.io.git(xxx为github账户名)
 
->repo: https://github.com/lzfuchen/lzfuchen.github.io.git
+> repo: https://github.com/lzfuchen/lzfuchen.github.io.git
 
 增加项branch  值为master表明我们网站将挂着再master分支
 
->branch: master
+> branch: master
 
-增加项message 值随意，(默认为 Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})
+增加项message 值随意，(默认为 Site updated: 'YYYY-MM-DD HH:mm:ss')
 
->message: Site updated
+> message: Site updated
 
 最终应该是这个样子的
 ![](/img/hexo_config_update.jpg)
 
 hexo配置完成后，安装插件hexo-deployer-git
->npm install hexo-deployer-git --save
+> npm install hexo-deployer-git --save
 
 接着我们配置git
->git config --global user.email "you@example.com"
->
->git config --global user.name "Your Name"
+> git config --global user.email "you@example.com"
+> git config --global user.name "Your Name"
 
->hexo g 生产网站静态资源
->hexo deploy 部署到网站到github
+> hexo g 生产网站静态资源
+> hexo deploy 部署到网站到github
