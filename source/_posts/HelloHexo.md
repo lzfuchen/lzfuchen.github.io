@@ -2,6 +2,7 @@
 title: 搭建一个属于自己的博客
 date: 2018-04-11 14:35:45
 tags: Hexo
+categories: hexo
 ---
 
 ## 前言
