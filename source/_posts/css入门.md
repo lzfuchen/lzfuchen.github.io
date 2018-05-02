@@ -191,6 +191,10 @@ text-decortation: none | underline | line-through
 ```
 background-color 背景颜色
 background-image 背景图片
+background-repeat no-repeat | repeat-x | repeat-y | repeat 背景平铺
+background-position left | rigth | center | top | bottom 背景定位
+放位值只写一个的时候，另外一个默认居中
+background-position 20px 30px
+写两个具体值的时候，第一个值代表水平方向，第二个代表垂直方向
+background-attachment scroll | fixed 背景是否滚动
 ```
-
-ceshi
