@@ -103,3 +103,92 @@ text-indent:2em; 首行缩进
 <span>演示示例</span>
 <h1>演示示例</h1>
 ```
+## 书写位置
+>内嵌式
+```
+<head>
+  <style type="type/css"></style>
+</head>
+```
+>外链式
+```
+<link rel="stylesheet" type="text/css" href="xxx.css">
+```
+>行内样式表
+```
+<h1 style="font-size:30px;color:red;" ></h1>
+```
+## 标签分类（显示方式）
+
+### 块元素
+典型代表：div p h1-h5 ul li
+
+特点：
+1. 独占一行
+2. 可以设置宽高
+3. 嵌套下，子块元素宽度(没有定义的情况下)和父块元素宽度一致
+
+### 行内元素
+典型代表：span a strong em del ins
+
+特点：
+1. 在一行上显示
+2. 不能直接定义宽高
+
+### 行内快元素（内联元素）
+典型代表：image input
+
+特点:
+1. 在一行上显示
+2. 可以直接设置宽高
+
+### 块元素、行内元素
+
+块元素转行内元素
+> display: inline;
+
+行内元素转块元素
+> display: block;
+
+块和行内元素转行内块元素
+> display: inline-block;
+
+## css三大特性
+### 层叠性
+当多个样式作用于同一个标签时，样式发生了冲突，总是执行后边的代码。
+### 继承性
+继承性发生的前提是包含(嵌套)关系
+
+总结：文字的所有属性都可以继承
+
+特殊情况：
+1. h1-h6不能继承文字大小。
+2. a标签不能继承颜色
+
+### 优先级
+```
+默认样式<标签选择器<类选择器<ID选择器<行内样式<!important
+```
+
+特点：
+1. 继承的权重为0
+2. 权重会叠加
+
+## 链接伪类
+```
+a:link{属性:值;} = a{属性:值;} 效果是一样的
+
+a:link{属性:值;} 链接默认状态
+a:visited{属性:值;} 链接访问之后的状态
+a:hover{属性:值;} 鼠标放到链接上面显示的状态
+a:active{属性:值;} 链接激活的状态
+:focus{属性:值;} 获取焦点
+```
+### 文本修饰
+text-decortation: none | underline | line-through
+
+### 背景属性
+```
+background-color 背景颜色
+background-image 背景图片
+```
