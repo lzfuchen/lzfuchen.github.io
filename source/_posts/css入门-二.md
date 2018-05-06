@@ -25,3 +25,17 @@ categories: 前端
 |    2     |      20px      |      30px      | 60px |
 总结:不带单位时，行高是和子元素文字大小相乘，em和%是和父元素文字大小相乘。行高以像素为单位，就是定义的行高值。
 推荐行高使用像素为单位
+## 盒子模型
+### 边框
+线型：solie 实线 dotted 点线 dashed 虚线
+属性连写:没有顺序要求，线型必须写
+### 边框合并
+```
+border-collapse: collapse
+去掉表单边框：
+border: 0 none;
+去掉轮廓线
+outline-style:none
+<label for="id"></label> 获取光标焦点
+:focus 获取光标焦点
+```
