@@ -20,3 +20,80 @@ float: left | right
 > 文本饶图
 > 制作导航
 > 网页布局
+
+## 清除浮动
+当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素发生位置错误
+
+> 清除浮动不是不用浮动，清除浮动产生的不利影响
+
+清除浮动的方法：
+
+clear : left | right | both（工作中用的最多）
+
+> 额外标签法
+在最后一个浮动元素后添加标签(一般用不上)
+
+> 给浮动盒子的父级元素使用 overflow:hidden; bfc
+
+> 伪元素清除 给浮动元素的父级使用（工作中使用这种方式）
+```
+.clearfix:after{
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both;
+}
+//兼容IE浏览器
+.clearfix{
+  zoom:1;
+}
+```
+
+## css初始化
+为了考虑到浏览器的兼容问题，其实不同浏览器对有些标签的默认值是不同的，如果没有对css初始化往往会出现浏览器之间的页面差异
+```
+腾讯：
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body{font:12px"宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;}
+a{color:#2d374b;text-decoration:none}
+a:hover{color:#cd0200;text-decoration:underline}
+em{font-style:normal}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+新浪：
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;}
+body{background:#fff;color:#333;font-size:12px; margin-top:5px;font-family:"SimSun","宋体","Arial Narrow";}
+ul,ol{list-style-type:none;}
+select,input,img,select{vertical-align:middle;}
+a{text-decoration:none;}
+a:link{color:#009;}
+a:visited{color:#800080;}
+a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+淘宝：
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
+body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; }
+address, cite, dfn, em, var { font-style:normal; }
+code, kbd, pre, samp { font-family:couriernew, courier, monospace; }
+small{ font-size:12px; }
+ul, ol { list-style:none; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+sup { vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+legend { color:#000; }
+fieldset, img { border:0; }
+button, input, select, textarea { font-size:100%; }
+table { border-collapse:collapse; border-spacing:0; }
+```
+## overflow（溢出的处理方式）
+| 属性             | 标签                                                 |
+| ---------------- | ---------------------------------------------------- |
+| overflow:visible | 默认值。内容不会被修剪，会呈现在元素框之外           |
+| overflow:hidden  | 内容会被修剪，并且其余内容是不可见的                 |
+| overflow:scroll  | 内容会被修剪，但是浏览器会显示滚动条以便查看其余内容 |
+| overflow:auto    | 如果内容被修剪，则浏览器会显示滚动条以便查看其余内容 | 
