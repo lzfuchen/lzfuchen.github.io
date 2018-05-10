@@ -122,3 +122,11 @@ table { border-collapse:collapse; border-spacing:0; }
 1. 固定定位之后，不占据原来的位置
 2. 元素使用固定定位之后，位置从浏览器出发
 3. 行内元素使用固定位后，会转化为行内块(不推荐使用，推荐使用display:inline-block)
+
+## 定位的盒子居中显示
+margin: 0 auto; 只能让标准流的盒子居中对齐
+定位的盒子居中：先左右走父元素盒子的一半50%,在向左走子盒子的一半(margin-left:负值)
+```
+left:50%;
+margin-left:往回走自身宽度的一般
+```
