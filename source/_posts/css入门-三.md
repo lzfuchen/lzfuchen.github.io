@@ -130,3 +130,22 @@ margin: 0 auto; 只能让标准流的盒子居中对齐
 left:50%;
 margin-left:往回走自身宽度的一般
 ```
+## 图片和文字垂直居中对齐
+vertical-align 对inline-block最敏感。默认值：baseline基线对齐
+
+## Css可见性
+overflow:hidden;溢出隐藏
+visibility:hidden;隐藏元素 隐藏之后还占据原来的位置
+display:none;隐藏元素 隐藏之后不占据原来的位置
+display：block; 元素可见
+
+display:none 和 display:block 常配合js使用
+
+### css值内容移除(网页优化)
+1. 使用text-indent:
+```
+a{
+  display: inline-block;
+  text-indent: -5000em;
+}
+```
