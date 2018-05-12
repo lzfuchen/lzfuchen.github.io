@@ -149,3 +149,25 @@ a{
   text-indent: -5000em;
 }
 ```
+## 属性选择器
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		input[type=text][class=user]{
+			width: 100px;
+			height: 50px;
+			background: red
+		}
+	</style>
+</head>
+<body>
+	<input type="text" class="user">
+	<input type="text" class="pwd">
+</body>
+</html>
+
+```
