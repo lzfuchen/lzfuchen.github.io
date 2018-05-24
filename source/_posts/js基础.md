@@ -15,3 +15,25 @@ NaN not a number 不是一个数字 但是数字类型
 ```
 ## 预解析
 预解析会把变量的声明和函数的声明提前
+
+## DOM
+ DOM 定义了访问和操作 HTML 文档的标准方法
+ ```
+ 1. 通过id获取元素
+ document.getElementById(elementId)
+ 2. 通过标签名获取元素
+ document.getElementsByTagName(tagName)
+ 3. 通过name获取元素
+ document.getElementsByName(elementName)
+ 4. 通过类名获取元素
+ document.getElementsByClassName(className)
+ 5. 通过选这期获取元素
+ document.querySelector(选择器);
+ document.querySelectorAll(选择器)
+ ```
+### 事件
+onclick 点击事件
+onmouseover 鼠标移到某元素之上
+onmouseout 鼠标从某元素移开
+onfocus	元素获取焦点时触发
+onblur	元素失去焦点时触发
