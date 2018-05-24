@@ -37,3 +37,15 @@ onmouseover 鼠标移到某元素之上
 onmouseout 鼠标从某元素移开
 onfocus	元素获取焦点时触发
 onblur	元素失去焦点时触发
+
+如果想要获取标签和内容，使用innerHtml，如果想要设置标签使用innerHtml。
+如果想要设置文本，用innerText或者innerHtml或者textContent
+
+获取自定义属性 getAttribute(name)  设置自定义属性 setAttribute(name,value)
+移除自定义属性也可以移除元素自带的属性 removeAttribute(name)
+
+### 节点
+页面上的标签，属性，文本都可以称为节点
+nodeType:节点的类型 1表示标签，2表示属性，3表示文本
+nodeName：节点的名字，标签节点---大写的标签名字，属性节点---小写的属性名 文本节点---#text
+nodeValue: 节点的值 标签节点---null, 属性节点---属性值,文本节点---文本内容
