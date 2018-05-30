@@ -49,3 +49,18 @@ onblur	元素失去焦点时触发
 nodeType:节点的类型 1表示标签，2表示属性，3表示文本
 nodeName：节点的名字，标签节点---大写的标签名字，属性节点---小写的属性名 文本节点---#text
 nodeValue: 节点的值 标签节点---null, 属性节点---属性值,文本节点---文本内容
+
+### 元素的创建
+元素创建的三种方式
+1. document.write("标签的代码及内容")
+```
+缺陷：如果是在页面加载完毕后，此时通过这种方式创建元素，那么页面上存在的所有内容全部被干掉
+```
+2. 对象.innerHtml="标签及代码";
+3. document.createElement("标签的名字")
+```
+//创建元素
+var pobj = document.createElement("p")
+//把创建后的子元素追加到父元素中
+obj.appendChild(pobj)
+```
