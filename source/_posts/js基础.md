@@ -49,7 +49,32 @@ onblur	元素失去焦点时触发
 nodeType:节点的类型 1表示标签，2表示属性，3表示文本
 nodeName：节点的名字，标签节点---大写的标签名字，属性节点---小写的属性名 文本节点---#text
 nodeValue: 节点的值 标签节点---null, 属性节点---属性值,文本节点---文本内容
-
+```
+//获取当前节点的父级节点
+对象.parentNode
+//获取当前节点的父级元素
+对象.parentElement
+//获取当前节点的子级节点
+对象.childNodes
+//获取当前节点的自己元素
+对象.children
+//获取当期节点的第一个子级节点
+对象.firstChild
+//获取当前节点的第一个子级元素
+对象.firstElementChild
+//获取当前节点的最后一个子级节点
+对象.lastChild
+//获取当前节点的最后一个子级元素
+对象.lastElementChild
+//获取当前节点的前一个兄弟节点
+对象.previousSibling
+//获取当前节点的前一个兄弟元素
+对象.previousElementSibling
+//获取当前节点的后一个兄弟节点
+对象.nextSibling
+//获取当前节点的后一个兄弟元素
+对象.nextElementSibling
+```
 ### 元素的创建
 元素创建的三种方式
 1. document.write("标签的代码及内容")
@@ -64,3 +89,41 @@ var pobj = document.createElement("p")
 //把创建后的子元素追加到父元素中
 obj.appendChild(pobj)
 ```
+### 为元素绑定事件
+```
+//参数1：事件的类型-----事件的名字，没有on
+//参数2：事件处理函数
+//参数3：boolean ，目前就写false
+//同一个元素可以绑定多个相同的事件
+addEventListener(); //谷歌火狐支持，IE8不支持
+
+//参数1：事件类型----事件的名字，有on
+//参数2：事件处理函数
+attachEvent(); //谷歌火狐不支持，IE8支持
+```
+> 判断浏览是否支持这个方法，直接:对象.方法名（不带括号）
+
+### 解绑事件
+用什么方式绑定事件，就应该用对应的方式解绑事件
+1. 对象.on事件名字 = 事件处理函数 ---> 绑定事件
+   对象.on事件名字 = null; ---> 解绑事件
+2. 对象.addEventListener 绑定事件
+   对象.removeEventListener("事件名字","命名函数",false); 解绑事件
+3. 对象.attachEvent 绑定事件
+   对象.detachEvent("有on事件名","命名函数");解绑事件
+
+### 事件冒泡
+多个元素嵌套，有层次关系，这些元素都注册了相同的事件，如果里面元素的事件触发了，外面元素的事件也自动触发。
+阻止事件冒泡
+```
+window.event.cancelBubble = true // IE特有的，谷歌支持，火狐不支持
+obj.onclick = function (e)}{
+  e.stopPropagation()//谷歌火狐支持，ie8不支持
+}
+```
+事件有个三个阶段 e.eventPhase
+1. 事件捕获阶段：从外向内
+2. 事件目标阶段：最开始选择的元素
+3. 事件冒泡阶段: 从里向外
+
+addEventListener("没有on的事件名字","函数","控制事件阶段")
