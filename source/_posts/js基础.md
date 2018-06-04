@@ -56,7 +56,7 @@ nodeValue: 节点的值 标签节点---null, 属性节点---属性值,文本节�
 对象.parentElement
 //获取当前节点的子级节点
 对象.childNodes
-//获取当前节点的自己元素
+//获取当前节点的子元素
 对象.children
 //获取当期节点的第一个子级节点
 对象.firstChild
@@ -172,3 +172,4 @@ navigator.platform //可以判断浏览器所在的系统平台类型
 
 ### 定时器/计时器
 setInterval();
+setTimeout();
