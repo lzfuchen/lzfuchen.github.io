@@ -127,3 +127,48 @@ obj.onclick = function (e)}{
 3. 事件冒泡阶段: 从里向外
 
 addEventListener("没有on的事件名字","函数","控制事件阶段")
+
+## BOM Browser Object Model 浏览器对象模型
+
+window是浏览器的顶级对象，当调用window下的属性和方法时，可以省略window。
+注意：window下一个特殊的属性：window.name
+
+//页面加载完毕，这个事件就会触发
+window.onload
+//页面关闭后触发 - IE8支持,谷歌不支持
+window.onunload
+//页面关闭之前 - IE8支持,谷歌不支持
+window.onbeforeunload
+
+### location
+```
+location.hash // #号及后面的内容
+location.hoat // 主机名及端口号
+location.hostname // 主机名
+location.pathname // 文件的路径---相对路径
+location.port // 对口号
+location.protocol // 协议
+location.search // ?号及后面的内容
+//设置页面的地址(有历史记录)
+location.href = 地址名
+location.assign(地址名);
+//重新加载刷新
+location.reload();
+//替换页面的地址(没有历史)
+location.replace();
+```
+### history
+```
+//后退
+history.back();
+//前进
+history.forward();
+//正数前进，负数后退
+history.go();
+```
+### navigator
+navigator.userAgent //可以判断用户浏览器类型
+navigator.platform //可以判断浏览器所在的系统平台类型
+
+### 定时器/计时器
+setInterval();
