@@ -173,3 +173,18 @@ navigator.platform //可以判断浏览器所在的系统平台类型
 ### 定时器/计时器
 setInterval();
 setTimeout();
+
+### offset
+
+对象.offsetHeight 获取元素的高度
+对象.offsetWidth 获取元素的宽度
+对象.offsetLeft 获取元素距离左边的距离
+没有脱离文档流: offsetLeft = 父级元素的margin+父级元素的padding+父级元素的border + 自己的margin
+脱离文档流: offsetLeft = 自己的left和自己的margin
+对象.offsetTop 获取元素距离上边的距离
+//获取body
+document.body 获取的是元素
+//获取title
+document.title 获取的是值
+//获取html
+document.documentElement
