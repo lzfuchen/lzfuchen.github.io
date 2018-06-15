@@ -20,3 +20,8 @@ var scrollTop = window.pageYOffset || document.documentElement.scrollTop
 var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
 || document.body.scrollLeft ||　0;
 ```
+## client
+clientWidth:可视区域的宽（没有边框），边框内部的宽度
+clientHeight:可视区域的高（没有边框），边框内部的高度
+clientLeft: 左边边框的宽度
+clientTop:上边边框的高度
