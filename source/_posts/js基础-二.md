@@ -5,23 +5,68 @@ tags: 前端
 categories: 前端
 ---
 
-## scroll
-scrollWidth:元素中内容的实际的宽(没有边框)如果没有内容就是元素的宽
-scrollHeight:元素中内容的实际的高(没有边框)如果没有内容就是元素的高
-scrollTop:向上滚出去的距离
-scrollLeft:向左滚曲出去的距离
-滚动事件：onscroll
+## 对象
+创建对象的三种方式:
 ```
-获取浏览器的滚动距离
-window.onscroll
-var scrollTop = window.pageYOffset || document.documentElement.scrollTop
-|| document.body.scrollTop ||　0;
+1.字面量的方式
+var obj = {};
+2.调用系统的构造函数
+var obj = new Object();
+3.自定义构造函数方式
+function Person(name,sex){
+  this.name = name;
+  this.sex = sex;
+  this.sleep = function (){
 
-var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
-|| document.body.scrollLeft ||　0;
+  }
+}
 ```
-## client
-clientWidth:可视区域的宽（没有边框），边框内部的宽度
-clientHeight:可视区域的高（没有边框），边框内部的高度
-clientLeft: 左边边框的宽度
-clientTop:上边边框的高度
+### 实例对象和构造函数的关系
+1. 实例对象是通过构造函数来创建的
+2. 两种方式判断对象是不是这个数据类型
+通过构造器的方式 实例对象.构造器 == 构造函数名字
+对象 instanceof 构造函数名字
+
+### 构造函数，原型对象，实例对象
+原型的作用之一：数据共享，节省内存空间
+```
+构造函数可以实例化对象，
+构造函数有一个属性prototype，是构造函数的原型对象
+构造函数的原型对象（prototype）中有一个constructor构造器，这个构造器指向的就是自己所在的原型对象所在的构造函数
+实力对象的原型对象（__proto__）指向的是该构造函数的原型对象
+构造函数的原型对象（prototype）中的方法是可以被实例对象直接访问的
+```
+
+### 原型链
+```
+是一种关系，实例对象和原型对象之间的关系，关系是通过原型（__proto__）来联系的
+原型对象方法中的this就是实例对象
+
+原型指向是可以改变的
+构造函数的原型对象prototype指向如果改变了，实例对象的原型（__proto__）指向也会发生改变
+实例对象和原型对象之间的关系是通过原型（__proto__)联系起来的，这个关系是原型链
+```
+### 继承
+为了数据共享，改变原型指向，做到了继承（通过改变原型指向实习的继承）
+缺陷：因为改变原型指向的同时实现继承，直接初始化了属性，继承过来的属性的值都是一样的。只能重新调用对象的属性进行重新赋值
+解决方案：借用构造函数，把要继承的父级的构造函数拿过来，使用一下就可以
+构造函数名字.call(当前对象)，
+
+组合继承：原型继承+借用构造函数
+
+拷贝继承：把一个对象中的属性或者方法直接复制到另一个对象中
+
+### 函数声明和函数表达式的区别
+函数声明如果放在if-else语句中，再IE8的浏览器中会出现问题
+以后宁愿用函数表达式，都不用函数声明
+
+### apply 和 call
+作用：可以改变this的指向
+      也是函数的调用方式
+apply和call方法中如果没有传入参数，或者传入的是null，那么调用该方法的函数对象中this就是默认的windows
+
+### 作用域
+变量的使用范围（局部作用域和全局作用域）
+js没有块级作用域---一对括号中定义的变量，这个变量可以再大括号外面使用
+函数中定义的变量是局部变量
+作用域链：变量的使用，从里向外，层层的搜索，搜索到了就可以直接使用了
