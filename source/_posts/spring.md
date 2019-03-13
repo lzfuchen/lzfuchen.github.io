@@ -77,6 +77,6 @@ spring的核心是控制反转(ioc)和面向切面(AOP)
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
     
-   3.2.获取ApplicationContext对象 
-   `WebApplicationContext c = WebApplicationContextUtils.getWebApplicationContext(ServletContext);`
+   	3.2.获取ApplicationContext对象 
+   	WebApplicationContext c = WebApplicationContextUtils.getWebApplicationContext(ServletContext);
     
