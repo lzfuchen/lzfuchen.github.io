@@ -185,5 +185,84 @@ spring的核心是控制反转(ioc)和面向切面(AOP)
 			@Around环绕通知
 			@AfterThrowing异常抛出通知
     			
-    			
+8.spring框架的JDBC模板技术
+
+	8.1 spring提供了JDBC模板 JdbcTemplate类，简化持久层编程
+	spring框架可以整合Hibernate框架，提供了模板类HibernateTemplate
 	
+	8.2 引入JDBC模板jar包:spring-jdbc,spring-tx
+    <!--配置连接池 spring默认提供的连接池-->
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.2.224:3306/spring?serverTimezone=GMT"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <!--配置jdbctemplate-->
+    <bean id="jdbctemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+    配置dbcp或c3p0连接池：引入com.springsource.org.apache.commons.pool.jar 和引入dbcp.jar或c3p0jar包
+    <!--配置DBCP连接池-->
+    <bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.2.224:3306/spring?serverTimezone=GMT"/>
+        <property name="username" value="root" />
+        <property name="password" value="root"/>
+    </bean>
+    <!--配置C3P0连接池-->
+    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://192.168.2.224:3306/spring?serverTimezone=GMT"/>
+        <property name="user" value="root" />
+        <property name="password" value="root"/>
+    </bean>
+ 
+9.spring框架的事务管理相关类和API
+	
+	PlatFormTransactionMananger接口：平台事务管理器（真正管理事务的类），该接口有具体的实现类，根据不同的持久层框架，需要选择不同的实现类。
+	TransactionDefinition接口:事务定义信息（事务的隔离级别 ，传播行为，超时，只读）
+	TransactionStatus接口:事务的状态
+	
+	上述对象之间的关系：平台事务管理器真正管理事务对象。根据事务定义的信息TransactionDefinition进行事务管理，在管理事务中产生一些状态，将状态记录到TransactionStatus中。
+	
+	9.1.事务隔离级别的常量
+		ISOLATION_DEFAULT 采用数据库的默认隔离级别
+		ISOLATION_READ_UNCOMMITTED
+		ISOLATION_READ_COMMITTED
+		ISOLATION_REPEATABLE_READ
+		ISOLATION_SERIALIZABLE
+		
+	事务的传播行为常量（解决的是业务层之间的方法调用）
+		*PROPAGATION_REQUIRED --A中有事务，使用A中的事务，如果没有，B就会开启一个新的事务，将A包含进来（保证A，B在同一个事务中），默认值
+		PROPAGATION_SUPPORTS --A中有事务，使用A中的事务，如果A中没有事务，那么B也不使用事务
+		PROPAGATION_MANDATORY --A中有事务，使用A中的事务，如果A没有事务，抛出异常
+		*PROPAGATION_REQUIRES_NEW --A中有事务，将A中的事务挂起，B创建一个新的事务（保证AB没有在一个事务中）
+		PROPAGATION_NOT_SUPPORTED --A中有事务，将A中的事务挂起
+		PROPAGATION_NEVER --A中有事务，抛出异常
+		PROPAGATION_NESTED --嵌套事务，当A执行之后,就会在这个位置设置一个保存点，如果B没有问题，执行通过。如果B出现异常， 根据需求回滚（选择回滚到保存点或者最初始状态）
+	
+	9.2.spring事务分类:
+		spring的编程式事务管理(不推荐),通过手动编写代码的方式完成事务的管理
+        <!--配置事务管理器-->
+        <bean id="transactionManager" 					class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="datasource"/>
+        </bean>
+
+        <!--配置事务管理模板-->
+        <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+            <property name="transactionManager" ref="transactionManager"/>
+        </bean>
+        
+        <!--在需要进行事务管理的类中，注入事务管理的模板-->
+        <bean id="accountService" class="com.fuchen.coding.service.impl.AccountServiceImpl">
+            <property name="accountDao" ref="accountDao"/>
+            <property name="transactionTemplate" ref="transactionTemplate"/>
+        </bean>
+      
+        
+		spring的声明式事务管理(底层采用AOP技术)，通过一段配置的方式完成事务的管理（掌握注解的方式）
+		<!--开启事务注解-->
+		<tx:annotation-driven transaction-manager="transactionManager"/>
+		在类上面添加@Transactional注解，表示当前这个类中的所有方法都有事务,也可以添加到方法上面，表示当前方法有事务
+		
