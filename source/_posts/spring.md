@@ -265,4 +265,63 @@ spring的核心是控制反转(ioc)和面向切面(AOP)
 		<!--开启事务注解-->
 		<tx:annotation-driven transaction-manager="transactionManager"/>
 		在类上面添加@Transactional注解，表示当前这个类中的所有方法都有事务,也可以添加到方法上面，表示当前方法有事务
-		
+
+10.spring整合struts2,hibernate
+
+	10.1.spring整合struts2框架两种方式
+		1.action由struts2框架来创建，在action类中提供service属性和set方法，struts2框架会按名称自动注入。
+		2.action由spring框架来创建，在spring配置文件中配置多例action，在struts2配置文件中class由全类名改为编写id值就ok,最后手动注入service。
+	
+	10.2.spring整合hibernate第一种(带有hibernate.cfg.xml)，dao继承HibernateDaoSupport，在spring配置文件中配置：
+	<!--编写bean，名称都是固定的，加载hibernate.cfg.xml的配置文件-->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml"/>
+	</bean>
+	在dao中注入sessionFactory
+	<!--配置事务管理器-->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	在service增加事务注解：@Transactional
+	
+	第二种(不带有hibernate.cfg.xml):在spring中增加配置
+	<!--配置C3P0连接池-->
+	<bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://192.168.2.224:3306/ssh?serverTimezone=GMT"/>
+		<property name="user" value="root" />
+		<property name="password" value="root"/>
+	</bean>
+
+	<!--编写bean，名称都是固定的，加载hibernate.cfg.xml的配置文件-->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!--加载拦截池-->
+		<property name="dataSource" ref="datasource"/>
+		<!--配置可选-->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<!--配置映射文件-->
+		<property name="mappingResources">
+			<list>
+				<value>com/fuchen/coding/domain/Customer.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	10.3.延时加载解决方案
+		增加一个过滤器
+		<!--解决延时加载的问题-->
+	    <filter>
+	        <filter-name>OpenSessionInViewFilter</filter-name>
+	        <filter-class>org.springframework.orm.hibernate5.support.OpenSessionInViewFilter</filter-class>
+	    </filter>
+	    <filter-mapping>
+	        <filter-name>OpenSessionInViewFilter</filter-name>
+	        <url-pattern>/*</url-pattern>
+	    </filter-mapping>
