@@ -205,7 +205,7 @@ var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
 || document.body.scrollLeft ||　0;
 ```
 ## client
-clientWidth:可视区域的宽（没有边框），边框内部的宽度
-clientHeight:可视区域的高（没有边框），边框内部的高度
+clientWidth:元素内部的宽度（包含内边距），不包括左右边框和垂直滚动条
+clientHeight:元素内部的高度（包含内边距），不包括上下边框和水平滚动条
 clientLeft: 左边边框的宽度
 clientTop:上边边框的高度
