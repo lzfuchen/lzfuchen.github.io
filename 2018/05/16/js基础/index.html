@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1234567undefined 变量未初始化null 值为空NaN not a number 不是一个数字 但是数字类型== 比较运算符，判断内容是否相同，不判断数据类型=== 不仅判断内容，还判断数据类型!= 只判断内容是否不相同，不判断数据类型!== 不全等于 不仅判断内容是否不相同，还判断数据类型是否不相同 预解析预解析会把变量的声明和函数的声明提前 DOM DOM 定义了访问和操作 HT">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基础">
+<meta property="og:url" content="http://yoursite.com/2018/05/16/js基础/index.html">
+<meta property="og:site_name" content="天行健 君子以自强不息">
+<meta property="og:description" content="1234567undefined 变量未初始化null 值为空NaN not a number 不是一个数字 但是数字类型== 比较运算符，判断内容是否相同，不判断数据类型=== 不仅判断内容，还判断数据类型!= 只判断内容是否不相同，不判断数据类型!== 不全等于 不仅判断内容是否不相同，还判断数据类型是否不相同 预解析预解析会把变量的声明和函数的声明提前 DOM DOM 定义了访问和操作 HT">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-02T05:39:42.523Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js基础">
+<meta name="twitter:description" content="1234567undefined 变量未初始化null 值为空NaN not a number 不是一个数字 但是数字类型== 比较运算符，判断内容是否相同，不判断数据类型=== 不仅判断内容，还判断数据类型!= 只判断内容是否不相同，不判断数据类型!== 不全等于 不仅判断内容是否不相同，还判断数据类型是否不相同 预解析预解析会把变量的声明和函数的声明提前 DOM DOM 定义了访问和操作 HT">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/16/js基础/"/>
+
+
+
+
+
+  <title>js基础 | 天行健 君子以自强不息</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天行健 君子以自强不息</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/16/js基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="fuchen">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天行健 君子以自强不息">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-16T22:42:27+08:00">
+                2018-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">undefined 变量未初始化</span><br><span class="line">null 值为空</span><br><span class="line">NaN not a number 不是一个数字 但是数字类型</span><br><span class="line"><span class="section">== 比较运算符，判断内容是否相同，不判断数据类型</span></span><br><span class="line"><span class="section">=== 不仅判断内容，还判断数据类型</span></span><br><span class="line">!= 只判断内容是否不相同，不判断数据类型</span><br><span class="line">!== 不全等于 不仅判断内容是否不相同，还判断数据类型是否不相同</span><br></pre></td></tr></table></figure>
+<h2 id="预解析"><a href="#预解析" class="headerlink" title="预解析"></a>预解析</h2><p>预解析会把变量的声明和函数的声明提前</p>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><p> DOM 定义了访问和操作 HTML 文档的标准方法<br> <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 通过id获取元素</span><br><span class="line"><span class="built_in">document</span>.getElementById(elementId)</span><br><span class="line"><span class="number">2.</span> 通过标签名获取元素</span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName(tagName)</span><br><span class="line"><span class="number">3.</span> 通过name获取元素</span><br><span class="line"><span class="built_in">document</span>.getElementsByName(elementName)</span><br><span class="line"><span class="number">4.</span> 通过类名获取元素</span><br><span class="line"><span class="built_in">document</span>.getElementsByClassName(className)</span><br><span class="line"><span class="number">5.</span> 通过选这期获取元素</span><br><span class="line"><span class="built_in">document</span>.<span class="built_in">querySelector</span>(选择器);</span><br><span class="line"><span class="built_in">document</span>.<span class="built_in">querySelectorAll</span>(选择器)</span><br></pre></td></tr></table></figure></p>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><p>onclick 点击事件<br>onmouseover 鼠标移到某元素之上<br>onmouseout 鼠标从某元素移开<br>onfocus    元素获取焦点时触发<br>onblur    元素失去焦点时触发</p>
+<p>如果想要获取标签和内容，使用innerHtml，如果想要设置标签使用innerHtml。<br>如果想要设置文本，用innerText或者innerHtml或者textContent</p>
+<p>获取自定义属性 getAttribute(name)  设置自定义属性 setAttribute(name,value)<br>移除自定义属性也可以移除元素自带的属性 removeAttribute(name)</p>
+<h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><p>页面上的标签，属性，文本都可以称为节点<br>nodeType:节点的类型 1表示标签，2表示属性，3表示文本<br>nodeName：节点的名字，标签节点—大写的标签名字，属性节点—小写的属性名 文本节点—#text<br>nodeValue: 节点的值 标签节点—null, 属性节点—属性值,文本节点—文本内容<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取当前节点的父级节点</span></span><br><span class="line">对象.parentNode</span><br><span class="line"><span class="comment">//获取当前节点的父级元素</span></span><br><span class="line">对象.parentElement</span><br><span class="line"><span class="comment">//获取当前节点的子级节点</span></span><br><span class="line">对象.childNodes</span><br><span class="line"><span class="comment">//获取当前节点的子元素</span></span><br><span class="line">对象.children</span><br><span class="line"><span class="comment">//获取当期节点的第一个子级节点</span></span><br><span class="line">对象.firstChild</span><br><span class="line"><span class="comment">//获取当前节点的第一个子级元素</span></span><br><span class="line">对象.firstElementChild</span><br><span class="line"><span class="comment">//获取当前节点的最后一个子级节点</span></span><br><span class="line">对象.lastChild</span><br><span class="line"><span class="comment">//获取当前节点的最后一个子级元素</span></span><br><span class="line">对象.lastElementChild</span><br><span class="line"><span class="comment">//获取当前节点的前一个兄弟节点</span></span><br><span class="line">对象.previousSibling</span><br><span class="line"><span class="comment">//获取当前节点的前一个兄弟元素</span></span><br><span class="line">对象.previousElementSibling</span><br><span class="line"><span class="comment">//获取当前节点的后一个兄弟节点</span></span><br><span class="line">对象.nextSibling</span><br><span class="line"><span class="comment">//获取当前节点的后一个兄弟元素</span></span><br><span class="line">对象.nextElementSibling</span><br></pre></td></tr></table></figure></p>
+<h2 id="元素的创建"><a href="#元素的创建" class="headerlink" title="元素的创建"></a>元素的创建</h2><p>元素创建的三种方式</p>
+<ol>
+<li><p>document.write(“标签的代码及内容”)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">缺陷：如果是在页面加载完毕后，此时通过这种方式创建元素，那么页面上存在的所有内容全部被干掉</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象.innerHtml=”标签及代码”;</p>
+</li>
+<li>document.createElement(“标签的名字”)<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建元素</span></span><br><span class="line"><span class="keyword">var</span> pobj = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>)</span><br><span class="line"><span class="comment">//把创建后的子元素追加到父元素中</span></span><br><span class="line">obj.appendChild(pobj)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="为元素绑定事件"><a href="#为元素绑定事件" class="headerlink" title="为元素绑定事件"></a>为元素绑定事件</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//</span>参数1：事件的类型<span class="params">-----</span>事件的名字，没有on</span><br><span class="line"><span class="string">//</span>参数2：事件处理函数</span><br><span class="line"><span class="string">//</span>参数3：boolean ，目前就写<span class="literal">false</span></span><br><span class="line"><span class="string">//</span>同一个元素可以绑定多个相同的事件</span><br><span class="line">addEventListener<span class="params">()</span>; <span class="string">//</span>谷歌火狐支持，IE8不支持</span><br><span class="line"></span><br><span class="line"><span class="string">//</span>参数1：事件类型<span class="params">----</span>事件的名字，有on</span><br><span class="line"><span class="string">//</span>参数2：事件处理函数</span><br><span class="line">attachEvent<span class="params">()</span>; <span class="string">//</span>谷歌火狐不支持，IE8支持</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>判断浏览是否支持这个方法，直接:对象.方法名（不带括号）</p>
+</blockquote>
+<h2 id="解绑事件"><a href="#解绑事件" class="headerlink" title="解绑事件"></a>解绑事件</h2><p>用什么方式绑定事件，就应该用对应的方式解绑事件</p>
+<ol>
+<li>对象.on事件名字 = 事件处理函数 —&gt; 绑定事件<br>对象.on事件名字 = null; —&gt; 解绑事件</li>
+<li>对象.addEventListener 绑定事件<br>对象.removeEventListener(“事件名字”,”命名函数”,false); 解绑事件</li>
+<li>对象.attachEvent 绑定事件<br>对象.detachEvent(“有on事件名”,”命名函数”);解绑事件</li>
+</ol>
+<h2 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h2><p>多个元素嵌套，有层次关系，这些元素都注册了相同的事件，如果里面元素的事件触发了，外面元素的事件也自动触发。<br>阻止事件冒泡<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.event.cancelBubble = <span class="literal">true</span> <span class="comment">// IE特有的，谷歌支持，火狐不支持</span></span><br><span class="line">obj.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>)&#125;</span>&#123;</span><br><span class="line">  e.stopPropagation()<span class="comment">//谷歌火狐支持，ie8不支持</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>事件有个三个阶段 e.eventPhase</p>
+<ol>
+<li>事件捕获阶段：从外向内</li>
+<li>事件目标阶段：最开始选择的元素</li>
+<li>事件冒泡阶段: 从里向外</li>
+</ol>
+<p>addEventListener(“没有on的事件名字”,”函数”,”控制事件阶段”)</p>
+<h2 id="BOM-Browser-Object-Model-浏览器对象模型"><a href="#BOM-Browser-Object-Model-浏览器对象模型" class="headerlink" title="BOM Browser Object Model 浏览器对象模型"></a>BOM Browser Object Model 浏览器对象模型</h2><p>window是浏览器的顶级对象，当调用window下的属性和方法时，可以省略window。<br>注意：window下一个特殊的属性：window.name</p>
+<p>//页面加载完毕，这个事件就会触发<br>window.onload<br>//页面关闭后触发 - IE8支持,谷歌不支持<br>window.onunload<br>//页面关闭之前 - IE8支持,谷歌不支持<br>window.onbeforeunload</p>
+<h2 id="location"><a href="#location" class="headerlink" title="location"></a>location</h2><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">location</span>.hash <span class="comment">// #号及后面的内容</span></span><br><span class="line"><span class="keyword">location</span>.hoat <span class="comment">// 主机名及端口号</span></span><br><span class="line"><span class="keyword">location</span>.hostname <span class="comment">// 主机名</span></span><br><span class="line"><span class="keyword">location</span>.pathname <span class="comment">// 文件的路径---相对路径</span></span><br><span class="line"><span class="keyword">location</span>.port <span class="comment">// 对口号</span></span><br><span class="line"><span class="keyword">location</span>.protocol <span class="comment">// 协议</span></span><br><span class="line"><span class="keyword">location</span>.search <span class="comment">// ?号及后面的内容</span></span><br><span class="line"><span class="comment">//设置页面的地址(有历史记录)</span></span><br><span class="line"><span class="keyword">location</span>.href = 地址名</span><br><span class="line"><span class="keyword">location</span>.assign(地址名);</span><br><span class="line"><span class="comment">//重新加载刷新</span></span><br><span class="line"><span class="keyword">location</span>.reload();</span><br><span class="line"><span class="comment">//替换页面的地址(没有历史)</span></span><br><span class="line"><span class="keyword">location</span>.replace();</span><br></pre></td></tr></table></figure>
+<h2 id="history"><a href="#history" class="headerlink" title="history"></a>history</h2><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//后退</span></span><br><span class="line">history.back<span class="comment">()</span>;</span><br><span class="line"><span class="comment">//前进</span></span><br><span class="line">history.forward<span class="comment">()</span>;</span><br><span class="line"><span class="comment">//正数前进，负数后退</span></span><br><span class="line">history.go<span class="comment">()</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h2><p>navigator.userAgent //可以判断用户浏览器类型<br>navigator.platform //可以判断浏览器所在的系统平台类型</p>
+<h2 id="定时器-计时器"><a href="#定时器-计时器" class="headerlink" title="定时器/计时器"></a>定时器/计时器</h2><p>setInterval();<br>setTimeout();</p>
+<h2 id="offset"><a href="#offset" class="headerlink" title="offset"></a>offset</h2><p>对象.offsetHeight 获取元素的高度<br>对象.offsetWidth 获取元素的宽度<br>对象.offsetLeft 获取元素距离左边的距离<br>没有脱离文档流: offsetLeft = 父级元素的margin+父级元素的padding+父级元素的border + 自己的margin<br>脱离文档流: offsetLeft = 自己的left和自己的margin<br>对象.offsetTop 获取元素距离上边的距离<br>//获取body<br>document.body 获取的是元素<br>//获取title<br>document.title 获取的是值<br>//获取html<br>document.documentElement</p>
+<h2 id="scroll"><a href="#scroll" class="headerlink" title="scroll"></a>scroll</h2><p>scrollWidth:元素中内容的实际的宽(没有边框)如果没有内容就是元素的宽<br>scrollHeight:元素中内容的实际的高(没有边框)如果没有内容就是元素的高<br>scrollTop:向上滚出去的距离<br>scrollLeft:向左滚曲出去的距离<br>滚动事件：onscroll<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">获取浏览器的滚动距离</span><br><span class="line"><span class="built_in">window</span>.onscroll</span><br><span class="line"><span class="keyword">var</span> scrollTop = <span class="built_in">window</span>.pageYOffset || <span class="built_in">document</span>.documentElement.scrollTop</span><br><span class="line">|| <span class="built_in">document</span>.body.scrollTop ||　<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> scrollLeft = <span class="built_in">window</span>.pageXOffset || <span class="built_in">document</span>.documentElement.scrollLeft</span><br><span class="line">|| <span class="built_in">document</span>.body.scrollLeft ||　<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="client"><a href="#client" class="headerlink" title="client"></a>client</h2><p>clientWidth:元素内部的宽度（包含内边距），不包括左右边框和垂直滚动条<br>clientHeight:元素内部的高度（包含内边距），不包括上下边框和水平滚动条<br>clientLeft: 左边边框的宽度<br>clientTop:上边边框的高度</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/07/css入门-三/" rel="next" title="css入门(三)">
+                <i class="fa fa-chevron-left"></i> css入门(三)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/05/js基础-二/" rel="prev" title="js基础-二">
+                js基础-二 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div id="gitalk-container"></div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">fuchen</p>
+              <p class="site-description motion-element" itemprop="description">一个程序猿的编程生活</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#预解析"><span class="nav-number">1.</span> <span class="nav-text">预解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">2.</span> <span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-number">3.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点"><span class="nav-number">4.</span> <span class="nav-text">节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素的创建"><span class="nav-number">5.</span> <span class="nav-text">元素的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为元素绑定事件"><span class="nav-number">6.</span> <span class="nav-text">为元素绑定事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解绑事件"><span class="nav-number">7.</span> <span class="nav-text">解绑事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件冒泡"><span class="nav-number">8.</span> <span class="nav-text">事件冒泡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM-Browser-Object-Model-浏览器对象模型"><span class="nav-number">9.</span> <span class="nav-text">BOM Browser Object Model 浏览器对象模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location"><span class="nav-number">10.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history"><span class="nav-number">11.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#navigator"><span class="nav-number">12.</span> <span class="nav-text">navigator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时器-计时器"><span class="nav-number">13.</span> <span class="nav-text">定时器/计时器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#offset"><span class="nav-number">14.</span> <span class="nav-text">offset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scroll"><span class="nav-number">15.</span> <span class="nav-text">scroll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#client"><span class="nav-number">16.</span> <span class="nav-text">client</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">fuchen</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '723abd319492cb0babad',
+          clientSecret: '8d22ca8cb4be5992f7596b0500724e36b8f0e8ae',
+          repo: 'lzfuchen.github.io',
+          owner: 'lzfuchen',
+          admin: ['lzfuchen'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
