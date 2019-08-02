@@ -176,8 +176,8 @@ setTimeout();
 
 ## offset
 
-对象.offsetHeight 获取元素的高度
-对象.offsetWidth 获取元素的宽度
+对象.offsetWidth 获取元素的宽度（包含元素的左右边框，左右内边距，垂直滚动条）
+对象.offsetHeight 获取元素的高度（包含元素的上下边框，上下内边距，垂直滚动条）
 对象.offsetLeft 获取元素距离左边的距离
 没有脱离文档流: offsetLeft = 父级元素的margin+父级元素的padding+父级元素的border + 自己的margin
 脱离文档流: offsetLeft = 自己的left和自己的margin
@@ -193,7 +193,7 @@ document.documentElement
 scrollWidth:元素中内容的实际的宽(没有边框)如果没有内容就是元素的宽
 scrollHeight:元素中内容的实际的高(没有边框)如果没有内容就是元素的高
 scrollTop:向上滚出去的距离
-scrollLeft:向左滚曲出去的距离
+scrollLeft:向左滚出去的距离
 滚动事件：onscroll
 ```
 获取浏览器的滚动距离
