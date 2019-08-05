@@ -132,6 +132,18 @@
       <url>/2018/06/17/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
       <content type="html"><![CDATA[<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>组成：由元字符或者是限定符组成一个式子<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>元字符</span><br><span class="line">. 表示的是：除了\n以外任意一个字符</span><br><span class="line">[] 表示的是：范围 任意的单个字符，括号中的任意一个字符</span><br><span class="line">[] 另一个含义：把正在表达式中元字符的意义干掉</span><br><span class="line">| 表示或的意思。“或”的优先级非常低，最后才计算</span><br><span class="line">() <span class="number">1.</span>改变优先级 <span class="number">2</span> 提取组（分组）</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>限定符</span><br><span class="line">&#123;n&#125; 表示前面的表达式必须出现n次</span><br><span class="line">&#123;n,&#125;表示前面的表达式至少出现n次，最多不限</span><br><span class="line">&#123;n,m&#125;表示前面的表达式至少出现n次，最多出现m次</span><br><span class="line">* 表示出现<span class="number">0</span>或多次</span><br><span class="line">+ 表示出现<span class="number">1</span>次或多次</span><br><span class="line">? 表示<span class="number">0</span>次或<span class="number">1</span>次 &#123;<span class="number">0</span>,<span class="number">1</span>&#125;?的另外一个意思是：终止贪婪模式</span><br><span class="line">^ 表示的是以什么开始，或者是取非</span><br><span class="line">^[<span class="number">0</span><span class="number">-9</span>]以数字开头</span><br><span class="line">^[a-z]以小写字母开始</span><br><span class="line">[^<span class="number">0</span><span class="number">-9</span>]取反，非数字</span><br><span class="line">[^a-z]非小写字母</span><br><span class="line">$ 表示的是以什么结束</span><br><span class="line">[a-z]$ 表示必须以小写字母结束</span><br><span class="line">\d 数字中的一个</span><br><span class="line">\D 非数字中的一个</span><br><span class="line">\s 空白符中的一个</span><br><span class="line">\S 非空白符中的一个</span><br><span class="line">\w 非特殊符号</span><br><span class="line">\W 特殊符号</span><br></pre></td></tr></table></figure></p>]]></content>
       
+      <categories>
+          
+          <category> 正则表达式 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正则表达式 </tag>
+            
+        </tags>
       
     </entry>
     
