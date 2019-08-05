@@ -6,8 +6,20 @@
       <title>webpack技巧</title>
       <link href="/2019/08/05/webpack%E6%8A%80%E5%B7%A7/"/>
       <url>/2019/08/05/webpack%E6%8A%80%E5%B7%A7/</url>
-      <content type="html"><![CDATA[]]></content>
+      <content type="html"><![CDATA[<h2 id="webpack之require-context"><a href="#webpack之require-context" class="headerlink" title="webpack之require.context()"></a>webpack之require.context()</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//案例：使用 require.context() 方法来创建自己的（模块）上下文，从而实现自动动态require组件。</span></span><br><span class="line"><span class="comment">//这个方法需要3个参数：要搜索的文件夹目录，是否还应该搜索它的子目录，以及一个匹配文件的正则表达式。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">capitalizeFirstLetter</span>(<span class="params">string</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> string.charAt(<span class="number">0</span>).toUpperCase() + string.slice(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> requireComponent = <span class="built_in">require</span>.context(<span class="string">'.'</span>, <span class="literal">false</span>, /\.vue$/)</span><br><span class="line"></span><br><span class="line">requireComponent.keys().forEach(<span class="function"><span class="params">fileName</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> componentConfig = requireComponent(fileName)</span><br><span class="line">    <span class="comment">//因为得到的filename格式是: './baseButton.vue', 所以这里我们去掉头和尾，只保留真正的文件名</span></span><br><span class="line">  <span class="keyword">const</span> componentName = capitalizeFirstLetter(fileName.replace(<span class="regexp">/^\.\//</span>, <span class="string">''</span>).replace(<span class="regexp">/\.\w+$/</span>, <span class="string">''</span>))</span><br><span class="line">  Vue.component(componentName, componentConfig.default || componentConfig)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>]]></content>
       
+      <categories>
+          
+          <category> webpack </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> webpack </tag>
+            
+        </tags>
       
     </entry>
     
