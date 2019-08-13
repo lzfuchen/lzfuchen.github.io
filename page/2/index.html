@@ -262,6 +262,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/07/css入门-三/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="付晨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天行健 君子以自强不息">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/07/css入门-三/" itemprop="url">css入门(三)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-07T20:42:54+08:00">
+                2018-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="标准流normal-flow-文档流"><a href="#标准流normal-flow-文档流" class="headerlink" title="标准流normal flow(文档流)"></a>标准流normal flow(文档流)</h2><p> 元素自上而下，自左而右，块元素独占一行，行内元素在一行显示，碰到父元素的边框换行。</p>
+<h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><p>float: left | right</p>
+<blockquote>
+<p>元素浮动之后不占据原来的位置(脱标)<br>浮动的盒子在一行显示<br>行内元素浮动之后转换为行内块元素(不推荐使用，转行内块元素最好使用display:inline-block;)<br>浮动找浮动，不浮动找不浮动<br>浮动只影响后面的元素<br>浮动元素顶部为基准对齐</p>
+</blockquote>
+<h3 id="浮动的作用"><a href="#浮动的作用" class="headerlink" title="浮动的作用"></a>浮动的作用</h3><blockquote>
+<p>文本饶图<br>制作导航<br>网页布局</p>
+</blockquote>
+<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>当父盒子没有定义高度，嵌套的盒子浮动之后，下边的元素发生位置错误</p>
+<blockquote>
+<p>清除浮动不是不用浮动，清除浮动产生的不利影响</p>
+</blockquote>
+<p>清除浮动的方法：</p>
+<p>clear : left | right | both（工作中用的最多）</p>
+<blockquote>
+<p>额外标签法<br>在最后一个浮动元素后添加标签(一般用不上)</p>
+</blockquote>
+<blockquote>
+<p>给浮动盒子的父级元素使用 overflow:hidden; bfc</p>
+</blockquote>
+<blockquote>
+<p>伪元素清除 给浮动元素的父级使用（工作中使用这种方式）<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:after&#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">"."</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//兼容IE浏览器</span></span><br><span class="line"><span class="selector-class">.clearfix</span>&#123;</span><br><span class="line">  zoom:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="css初始化"><a href="#css初始化" class="headerlink" title="css初始化"></a>css初始化</h2><p>为了考虑到浏览器的兼容问题，其实不同浏览器对有些标签的默认值是不同的，如果没有对css初始化往往会出现浏览器之间的页面差异<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">腾讯：</span><br><span class="line"><span class="selector-tag">body</span>,<span class="selector-tag">ol</span>,<span class="selector-tag">ul</span>,<span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span>,<span class="selector-tag">h4</span>,<span class="selector-tag">h5</span>,<span class="selector-tag">h6</span>,<span class="selector-tag">p</span>,<span class="selector-tag">th</span>,<span class="selector-tag">td</span>,<span class="selector-tag">dl</span>,<span class="selector-tag">dd</span>,<span class="selector-tag">form</span>,<span class="selector-tag">fieldset</span>,<span class="selector-tag">legend</span>,<span class="selector-tag">input</span>,<span class="selector-tag">textarea</span>,<span class="selector-tag">select</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>&#125;</span><br><span class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">font</span>:<span class="number">12px</span><span class="string">"宋体"</span>,<span class="string">"Arial Narrow"</span>,HELVETICA;<span class="attribute">background</span>:<span class="number">#fff</span>;<span class="attribute">-webkit-text-size-adjust</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-tag">a</span>&#123;<span class="attribute">color</span>:<span class="number">#2d374b</span>;<span class="attribute">text-decoration</span>:none&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;<span class="attribute">color</span>:<span class="number">#cd0200</span>;<span class="attribute">text-decoration</span>:underline&#125;</span><br><span class="line"><span class="selector-tag">em</span>&#123;<span class="attribute">font-style</span>:normal&#125;</span><br><span class="line"><span class="selector-tag">li</span>&#123;<span class="attribute">list-style</span>:none&#125;</span><br><span class="line"><span class="selector-tag">img</span>&#123;<span class="attribute">border</span>:<span class="number">0</span>;<span class="attribute">vertical-align</span>:middle&#125;</span><br><span class="line"><span class="selector-tag">table</span>&#123;<span class="attribute">border-collapse</span>:collapse;<span class="attribute">border-spacing</span>:<span class="number">0</span>&#125;</span><br><span class="line"><span class="selector-tag">p</span>&#123;<span class="attribute">word-wrap</span>:break-word&#125;</span><br><span class="line">新浪：</span><br><span class="line"><span class="selector-tag">body</span>,<span class="selector-tag">ul</span>,<span class="selector-tag">ol</span>,<span class="selector-tag">li</span>,<span class="selector-tag">p</span>,<span class="selector-tag">h1</span>,<span class="selector-tag">h2</span>,<span class="selector-tag">h3</span>,<span class="selector-tag">h4</span>,<span class="selector-tag">h5</span>,<span class="selector-tag">h6</span>,<span class="selector-tag">form</span>,<span class="selector-tag">fieldset</span>,<span class="selector-tag">table</span>,<span class="selector-tag">td</span>,<span class="selector-tag">img</span>,<span class="selector-tag">div</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;<span class="attribute">border</span>:<span class="number">0</span>;&#125;</span><br><span class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">background</span>:<span class="number">#fff</span>;<span class="attribute">color</span>:<span class="number">#333</span>;<span class="attribute">font-size</span>:<span class="number">12px</span>; <span class="attribute">margin-top</span>:<span class="number">5px</span>;<span class="attribute">font-family</span>:<span class="string">"SimSun"</span>,<span class="string">"宋体"</span>,<span class="string">"Arial Narrow"</span>;&#125;</span><br><span class="line"><span class="selector-tag">ul</span>,<span class="selector-tag">ol</span>&#123;<span class="attribute">list-style-type</span>:none;&#125;</span><br><span class="line"><span class="selector-tag">select</span>,<span class="selector-tag">input</span>,<span class="selector-tag">img</span>,<span class="selector-tag">select</span>&#123;<span class="attribute">vertical-align</span>:middle;&#125;</span><br><span class="line"><span class="selector-tag">a</span>&#123;<span class="attribute">text-decoration</span>:none;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>&#123;<span class="attribute">color</span>:<span class="number">#009</span>;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>&#123;<span class="attribute">color</span>:<span class="number">#800080</span>;&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>,<span class="selector-tag">a</span><span class="selector-pseudo">:active</span>,<span class="selector-tag">a</span><span class="selector-pseudo">:focus</span>&#123;<span class="attribute">color</span>:<span class="number">#c00</span>;<span class="attribute">text-decoration</span>:underline;&#125;</span><br><span class="line">淘宝：</span><br><span class="line"><span class="selector-tag">body</span>, <span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span>, <span class="selector-tag">h4</span>, <span class="selector-tag">h5</span>, <span class="selector-tag">h6</span>, <span class="selector-tag">hr</span>, <span class="selector-tag">p</span>, <span class="selector-tag">blockquote</span>, <span class="selector-tag">dl</span>, <span class="selector-tag">dt</span>, <span class="selector-tag">dd</span>, <span class="selector-tag">ul</span>, <span class="selector-tag">ol</span>, <span class="selector-tag">li</span>, <span class="selector-tag">pre</span>, <span class="selector-tag">form</span>, <span class="selector-tag">fieldset</span>, <span class="selector-tag">legend</span>, <span class="selector-tag">button</span>, <span class="selector-tag">input</span>, <span class="selector-tag">textarea</span>, <span class="selector-tag">th</span>, <span class="selector-tag">td</span> &#123; <span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">padding</span>:<span class="number">0</span>; &#125;</span><br><span class="line"><span class="selector-tag">body</span>, <span class="selector-tag">button</span>, <span class="selector-tag">input</span>, <span class="selector-tag">select</span>, <span class="selector-tag">textarea</span> &#123; <span class="attribute">font</span>:<span class="number">12px</span>/<span class="number">1.5</span>tahoma, arial, \<span class="number">5</span>b8b\<span class="number">4</span>f53; &#125;</span><br><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>, <span class="selector-tag">h3</span>, <span class="selector-tag">h4</span>, <span class="selector-tag">h5</span>, <span class="selector-tag">h6</span>&#123; <span class="attribute">font-size</span>:<span class="number">100%</span>; &#125;</span><br><span class="line"><span class="selector-tag">address</span>, <span class="selector-tag">cite</span>, <span class="selector-tag">dfn</span>, <span class="selector-tag">em</span>, <span class="selector-tag">var</span> &#123; <span class="attribute">font-style</span>:normal; &#125;</span><br><span class="line"><span class="selector-tag">code</span>, <span class="selector-tag">kbd</span>, <span class="selector-tag">pre</span>, <span class="selector-tag">samp</span> &#123; <span class="attribute">font-family</span>:couriernew, courier, monospace; &#125;</span><br><span class="line"><span class="selector-tag">small</span>&#123; <span class="attribute">font-size</span>:<span class="number">12px</span>; &#125;</span><br><span class="line"><span class="selector-tag">ul</span>, <span class="selector-tag">ol</span> &#123; <span class="attribute">list-style</span>:none; &#125;</span><br><span class="line"><span class="selector-tag">a</span> &#123; <span class="attribute">text-decoration</span>:none; &#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123; <span class="attribute">text-decoration</span>:underline; &#125;</span><br><span class="line"><span class="selector-tag">sup</span> &#123; <span class="attribute">vertical-align</span>:text-top; &#125;</span><br><span class="line"><span class="selector-tag">sub</span>&#123; <span class="attribute">vertical-align</span>:text-bottom; &#125;</span><br><span class="line"><span class="selector-tag">legend</span> &#123; <span class="attribute">color</span>:<span class="number">#000</span>; &#125;</span><br><span class="line"><span class="selector-tag">fieldset</span>, <span class="selector-tag">img</span> &#123; <span class="attribute">border</span>:<span class="number">0</span>; &#125;</span><br><span class="line"><span class="selector-tag">button</span>, <span class="selector-tag">input</span>, <span class="selector-tag">select</span>, <span class="selector-tag">textarea</span> &#123; <span class="attribute">font-size</span>:<span class="number">100%</span>; &#125;</span><br><span class="line"><span class="selector-tag">table</span> &#123; <span class="attribute">border-collapse</span>:collapse; <span class="attribute">border-spacing</span>:<span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="overflow（溢出的处理方式）"><a href="#overflow（溢出的处理方式）" class="headerlink" title="overflow（溢出的处理方式）"></a>overflow（溢出的处理方式）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>overflow:visible</td>
+<td>默认值。内容不会被修剪，会呈现在元素框之外</td>
+</tr>
+<tr>
+<td>overflow:hidden</td>
+<td>内容会被修剪，并且其余内容是不可见的</td>
+</tr>
+<tr>
+<td>overflow:scroll</td>
+<td>内容会被修剪，但是浏览器会显示滚动条以便查看其余内容</td>
+</tr>
+<tr>
+<td>overflow:auto</td>
+<td>如果内容被修剪，则浏览器会显示滚动条以便查看其余内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="定位-position"><a href="#定位-position" class="headerlink" title="定位(position)"></a>定位(position)</h2><p>定位方向 : left | right | top | bottom</p>
+<h3 id="static-静态定位。默认值，就是文档流"><a href="#static-静态定位。默认值，就是文档流" class="headerlink" title="static 静态定位。默认值，就是文档流"></a>static 静态定位。默认值，就是文档流</h3><h3 id="absolute-绝对定位"><a href="#absolute-绝对定位" class="headerlink" title="absolute 绝对定位"></a>absolute 绝对定位</h3><p>特点：</p>
+<ol>
+<li>元素使用绝对定位之后不占据原来的位置（脱标）</li>
+<li>元素使用绝对定位，位置是从浏览器出发。</li>
+<li>嵌套的盒子，父盒子没有使用定位，子盒子绝对定位，子盒子位置从浏览器出发。</li>
+<li>嵌套的盒子，父盒子使用定位，子盒子绝对定位，子盒子位置从父元素位置出发</li>
+<li>给行内元素使用绝对定位之后，转换为行内块（不推荐使用，推荐使用display:inline-block）</li>
+</ol>
+<h3 id="relative-相对定位"><a href="#relative-相对定位" class="headerlink" title="relative 相对定位"></a>relative 相对定位</h3><p>特点：</p>
+<ol>
+<li>使用相对定位，位置从自身出发。</li>
+<li>还占据原来的位置。</li>
+<li>子绝父相（父元素相对定位，子元素相对定位）(重点重点重点)</li>
+<li>行内元素使用相对定位不能转行内块</li>
+</ol>
+<h3 id="fixed-固定定位"><a href="#fixed-固定定位" class="headerlink" title="fixed 固定定位"></a>fixed 固定定位</h3><p>特点:</p>
+<ol>
+<li>固定定位之后，不占据原来的位置</li>
+<li>元素使用固定定位之后，位置从浏览器出发</li>
+<li>行内元素使用固定位后，会转化为行内块(不推荐使用，推荐使用display:inline-block)</li>
+</ol>
+<h2 id="定位的盒子居中显示"><a href="#定位的盒子居中显示" class="headerlink" title="定位的盒子居中显示"></a>定位的盒子居中显示</h2><p>margin: 0 auto; 只能让标准流的盒子居中对齐<br>定位的盒子居中：先左右走父元素盒子的一半50%,在向左走子盒子的一半(margin-left:负值)<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">left</span>:<span class="number">50%</span>;</span><br><span class="line"><span class="attribute">margin-left</span>:往回走自身宽度的一般</span><br></pre></td></tr></table></figure></p>
+<h2 id="图片和文字垂直居中对齐"><a href="#图片和文字垂直居中对齐" class="headerlink" title="图片和文字垂直居中对齐"></a>图片和文字垂直居中对齐</h2><p>vertical-align 对inline-block最敏感。默认值：baseline基线对齐</p>
+<h2 id="Css可见性"><a href="#Css可见性" class="headerlink" title="Css可见性"></a>Css可见性</h2><p>overflow:hidden;溢出隐藏<br>visibility:hidden;隐藏元素 隐藏之后还占据原来的位置<br>display:none;隐藏元素 隐藏之后不占据原来的位置<br>display：block; 元素可见</p>
+<p>display:none 和 display:block 常配合js使用</p>
+<h3 id="css值内容移除-网页优化"><a href="#css值内容移除-网页优化" class="headerlink" title="css值内容移除(网页优化)"></a>css值内容移除(网页优化)</h3><ol>
+<li>使用text-indent:<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">text-indent</span>: -<span class="number">5000em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">	&lt;style type="text/</span>css<span class="string">"&gt;</span></span><br><span class="line"><span class="string">		input[type=text][class=user]&#123;</span></span><br><span class="line"><span class="string">			width: 100px;</span></span><br><span class="line"><span class="string">			height: 50px;</span></span><br><span class="line"><span class="string">			background: red</span></span><br><span class="line"><span class="string">		&#125;</span></span><br><span class="line"><span class="string">	&lt;/style&gt;</span></span><br><span class="line"><span class="string">&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">	&lt;input type="</span>text<span class="string">" class="</span>user<span class="string">"&gt;</span></span><br><span class="line"><span class="string">	&lt;input type="</span>text<span class="string">" class="</span>pwd<span class="string">"&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="盒子里元素垂直居中"><a href="#盒子里元素垂直居中" class="headerlink" title="盒子里元素垂直居中"></a>盒子里元素垂直居中</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">position</span>: relative;</span><br><span class="line"><span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line"><span class="attribute">transform</span>: translateY(-<span class="number">50%</span>);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/02/css入门-二/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1105,7 +1328,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1127,7 +1350,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1229,8 +1452,6 @@
   
 
 
-  
-
 
 
 
@@ -1269,11 +1490,6 @@
   
   
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
   
 
 
